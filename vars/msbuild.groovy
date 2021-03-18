@@ -1,4 +1,4 @@
-def call (String buildParams, String projectname, String buildDir)
+def call ( String projectname, String buildDir)
 {
 
 dir(buildDir)
@@ -16,9 +16,9 @@ if( projectname.take(W) == "WES_UTILS")
 '''
 }
 
-bat '''
+/*bat '''
 msbuild /t:build/property:configuration=Release "${buildParams}"
-'''
+'''*/
 
 }
 

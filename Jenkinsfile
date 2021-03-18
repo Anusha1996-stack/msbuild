@@ -3,7 +3,7 @@
 node {
 	stage('compile')
 	{
-		compile(msbuild, mode=dev,WES_UTILS, bremen)
+		compile(msbuild,WES_UTILS, bremen)
 	}
 
 	/*stage('msbuild running')
