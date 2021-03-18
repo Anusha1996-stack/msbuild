@@ -1,0 +1,51 @@
+---
+serviceName: "WES-UTILS"
+
+
+buildEnvironment:
+  agentype: "docker"
+
+
+
+sourcecode:
+  gitrepo: "https://git.cpg.dell.com/scm/wda/dca_enabler.git" #Mandatory
+  gitbranch: "release/WMS_3.2" #Mandatory
+  submodule: true #Manadtory Boolean true | false
+ 
+compile:
+  buildtool: "msbuild", #make #make, cmake, "msbuild", maven, gradle
+  buildDir: "/var/lib/jenkins/workspace/feature/WindowsPOC"
+    #buildDir: "bremen_build" 
+  #buildstep: "" # Build steps like: make env, make all etc.
+  #makeParams: "mode=dev build_number=${BUILD_NUMBER} cert=DHC_selfsign" #
+  RESET_REL_VERSION: ""
+  TARGET_PROJECT: "" # for DCA
+
+codesigning:
+  signing: "YES" # YES | NO
+  signtype: "OpenSSL" # OpenSSL or Windows
+  signingcert: "Latestsign" #This parameter is for only OpenSSL signing certificates: DHC_selfsign, Oldcert_sign, Selfsign_WMS, Testsign, Latestsign
+  filetobesigned: "/root/LASSEN_WDA/ngen_wda/Deployment/ubuntu/PACKAGE/*.deb" #This parameter is for only OpenSSL signing. 
+                      # File/files in directory to be signed
+  dirforsignedfiles: "/root/LASSEN_WDA/ngen_wda" #This parameter is for only OpenSSL signing
+
+
+    #Unittest:
+    #testdir: "" #specify the base directory to execute unit test
+    #testcommands: "" #command like make run-unittest
+    #postUTcommand: "" # specify post Unit test commands if any
+
+buildvalidationtest:
+  BVT: "NO" # Manadtory Yes | NO
+
+
+skylineupload:
+  filestobeuploaded: "bremen_build/RELEASE/*" 
+  excludefiles: ""
+
+postbuildactivity:
+  archiveartifact: ""
+  
+
+emailID: "nethravathi_gundappa@dell.com,deepika_kandula@dell.com" # Email alias for email notification
+

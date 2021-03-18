@@ -1,10 +1,4 @@
-
-def call()
-{
-	println("msbuild calling")
-}
-
-/*def call (String buildParams, String projectname, String buildDir, String Platform)
+def call (String buildParams, String projectname, String buildDir)
 {
 
 dir(buildDir)
@@ -28,4 +22,9 @@ msbuild /t:build/property:configuration=Release "${buildParams}"
 
 }
 
+}
+
+/*def call()
+{
+	println("msbuild calling")
 }*/
