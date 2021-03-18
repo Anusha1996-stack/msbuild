@@ -1,6 +1,12 @@
-def call (String buildParams, String projectname, String buildDir, String Platform)
+
+def call()
 {
-sh '''
+	println("msbuild calling")
+}
+
+/*def call (String buildParams, String projectname, String buildDir, String Platform)
+{
+
 dir(buildDir)
 {
 def W = ["WES_UTILS"];
@@ -19,7 +25,7 @@ if( projectname.take(W) == "WES_UTILS")
 bat '''
 msbuild /t:build/property:configuration=Release "${buildParams}"
 '''
-'''
-}
 
 }
+
+}*/
