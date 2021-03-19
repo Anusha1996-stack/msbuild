@@ -1,3 +1,3 @@
-@Library('Shared_Library@feature/WindowsPOC')_
+@Library('msbuild@master')_
 //selectagent();
 mcsgcipipelinenew();
