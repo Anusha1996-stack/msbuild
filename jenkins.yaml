@@ -1,5 +1,6 @@
+
 ---
-serviceName: "WES-UTILS"
+serviceName: "WES_UTILS"
 
 
 buildEnvironment:
@@ -8,26 +9,26 @@ buildEnvironment:
 
 
 sourcecode:
-  gitrepo: "https://github.com/Anusha1996-stack/msbuild.git" #Mandatory
-  gitbranch: "release/1.2" #Mandatory
+  gitrepo: "https://git.cpgswtools.com/scm/wwa/baactive.git" #Mandatory
+  gitbranch: "release/BAActive" #Mandatory
   submodule: true #Manadtory Boolean true | false
  
 compile:
-  buildtool: "msbuild", #make #make, cmake, "msbuild", maven, gradle
-  buildDir: "/var/lib/jenkins/workspace/feature/WindowsPOC"
-    #buildDir: "bremen_build" 
-  #buildstep: "" # Build steps like: make env, make all etc.
-  #makeParams: "mode=dev build_number=${BUILD_NUMBER} cert=DHC_selfsign" #
+  buildtool: "msbuild" #make, cmake, msbuild, maven, gradle
+  buildDir: "/var/lib/jenkins/workspace/MCSGcicdpipeline_feature_WindowsPOC"
+    #buildDir: "" 
+  #buildstep: "" # Build steps like: clean env, Rebuild all etc.
+  #makeParams: "mode=dev build_number=${BUILD_NUMBER} cert=MS_SIGNING,CODE_SIGNING" #
   RESET_REL_VERSION: ""
   TARGET_PROJECT: "" # for WES_UTILS
 
 codesigning:
   signing: "YES" # YES | NO
   signtype: "Windows" # OpenSSL or Windows
-  signingcert: "Latestsign" #This parameter is for only OpenSSL signing certificates: DHC_selfsign, Oldcert_sign, Selfsign_WMS, Testsign, Latestsign
-  filetobesigned: "/root/LASSEN_WDA/ngen_wda/Deployment/ubuntu/PACKAGE/*.deb" #This parameter is for only OpenSSL signing. 
+    #signingcert: "Latestsign" #This parameter is for only Windows signing certificates: MS_SIGNING, CODE_SIGNING
+    #filetobesigned: "C:\CodeSigning\sign_wes-sdk-dll.bat" #This parameter is for only Windows signing. 
                       # File/files in directory to be signed
-  dirforsignedfiles: "/root/LASSEN_WDA/ngen_wda" #This parameter is for only OpenSSL signing
+                      #dirforsignedfiles: "C:\\CodeSigning\\sign_test.bat" #This parameter is for only Windows signing
 
 
     #Unittest:
@@ -40,12 +41,12 @@ buildvalidationtest:
 
 
 skylineupload:
-  filestobeuploaded: "bremen_build/RELEASE/*" 
+  filestobeuploaded: "BAACTIVE/RELEASE/" 
   excludefiles: ""
 
 postbuildactivity:
   archiveartifact: ""
   
 
-emailID: "nethravathi_gundappa@dell.com,deepika_kandula@dell.com" # Email alias for email notification
+emailID: "Sindhu_V_s@Dellteam.com" # Email alias for email notification
 

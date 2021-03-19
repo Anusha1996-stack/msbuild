@@ -1,6 +1,5 @@
-def call ( String projectname, String buildDir)
+def call (String buildParams, String projectname, String buildDir)
 {
-
 dir(buildDir)
 {
 def W = ["WES_UTILS"];
@@ -13,13 +12,13 @@ if( projectname.take(W) == "WES_UTILS")
 {
 	bat '''
         msbuild /t:clean/property:configuration=Release
-'''
+        '''
 }
+{
 
-bat '''
-msbuild /t:build/property:configuration=Release "${buildParams}"
-'''
-
+        bat '''
+        msbuild /t:build/property:configuration=Release "${buildParams}"
+        '''
 }
 
 }

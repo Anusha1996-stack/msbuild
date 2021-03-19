@@ -1,0 +1,26 @@
+---
+serviceName: "" #Required String
+artifactRepoPath: "" #Required String
+solutionFile: "" #Optional String
+testDir: "" #Optional String
+projectFile: "" #Optional String
+reportPortalProject: "" #Optional String
+language: #Required
+  languageName: "" #Required String (dotNetCore | cSharp | javaMaven | javaGradle | groovyGradle | npm | golang | python | cloudFormation | jsUi)
+  testResultsDirectory: "" #Optional String
+  testResultFile: "" #Optional String
+  buildArtifactDirectory: "" #Optional String
+  testAutomationGAV: #Optional String
+    group: "" #Optional String
+    artifact: "" #Optional String
+    version: "" #Optional String
+  automationScenarioTags: "" #Optional String
+  shouldRunTestAutomation: "" #Optional Boolean true | false
+  gitRepo: "" #Required String
+  testAutomationGAV: #Optional String
+    group: "" #Optional String
+    artifact: "" #Optional String
+    version: "" #Optional String
+  automationScenarioTags: "" #Optional String
+  shouldRunTestAutomation: #Optional Boolean true | false
+  environmentSetting: "" #Required String (BiosAzureEnvironmentProperties | CoreServicesAzureEnvironmentProperties | DCRMAzureEnvironmentProperties | DevOpsAzureEnvironmentProperties | DSEAngularAzureEnvironmentProperties | DwsAzureEnvironmentProperties | InsightsAzureEnvironmentProperties)
