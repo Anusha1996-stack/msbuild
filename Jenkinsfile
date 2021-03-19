@@ -1,9 +1,14 @@
 @Library('msbuild@master')_
 
 node {
+
+	stage('checkout')
+	{
+		datas = readYaml(file: 'jenkins.yaml')
+	}
 	stage('compile')
 	{
-		compile(msbuild,WES_UTILS, bremen)
+		compile(datas.compile.builtool, datas.projectname,datas.compile.buildDir)
 	}
 
 	/*stage('msbuild running')

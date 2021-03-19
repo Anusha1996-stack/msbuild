@@ -8,8 +8,8 @@ buildEnvironment:
 
 
 sourcecode:
-  gitrepo: "https://git.cpg.dell.com/scm/wda/dca_enabler.git" #Mandatory
-  gitbranch: "release/WMS_3.2" #Mandatory
+  gitrepo: "https://github.com/Anusha1996-stack/msbuild.git" #Mandatory
+  gitbranch: "release/1.2" #Mandatory
   submodule: true #Manadtory Boolean true | false
  
 compile:
@@ -19,11 +19,11 @@ compile:
   #buildstep: "" # Build steps like: make env, make all etc.
   #makeParams: "mode=dev build_number=${BUILD_NUMBER} cert=DHC_selfsign" #
   RESET_REL_VERSION: ""
-  TARGET_PROJECT: "" # for DCA
+  TARGET_PROJECT: "" # for WES_UTILS
 
 codesigning:
   signing: "YES" # YES | NO
-  signtype: "OpenSSL" # OpenSSL or Windows
+  signtype: "Windows" # OpenSSL or Windows
   signingcert: "Latestsign" #This parameter is for only OpenSSL signing certificates: DHC_selfsign, Oldcert_sign, Selfsign_WMS, Testsign, Latestsign
   filetobesigned: "/root/LASSEN_WDA/ngen_wda/Deployment/ubuntu/PACKAGE/*.deb" #This parameter is for only OpenSSL signing. 
                       # File/files in directory to be signed
