@@ -16,15 +16,11 @@ if( projectname.take(W) == "WES_UTILS")
 '''
 }
 
-/*bat '''
+bat '''
 msbuild /t:build/property:configuration=Release "${buildParams}"
-'''*/
+'''
 
 }
 
 }
 
-/*def call()
-{
-	println("msbuild calling")
-}*/
