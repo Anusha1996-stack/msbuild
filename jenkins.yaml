@@ -9,9 +9,9 @@ buildEnvironment:
 
 
 sourcecode:
-  gitrepo: "https://git.cpgswtools.com/scm/wwa/baactive.git" #Mandatory
-  gitbranch: "release/BAActive" #Mandatory
-  submodule: true #Manadtory Boolean true | false
+  gitrepo: "https://github.com/Anusha1996-stack/sample.git" #Mandatory
+  gitbranch: "master" #Mandatory
+  submodule: false #Manadtory Boolean true | false
  
 compile:
   buildtool: "msbuild" #make, cmake, msbuild, maven, gradle

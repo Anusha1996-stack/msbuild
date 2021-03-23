@@ -19,10 +19,8 @@ def datas
 }*/
 pipeline 
 {
-	agent {
-	    node {
-	        label "ChoOyu"
-	        }
+	agent any {
+	    
 	} 
 
 stages
@@ -32,7 +30,7 @@ stages
 		steps
 		{
 			script{ datas = readYaml (file: 'jenkins.yaml') }
-			gitclone( datas.sourcecode.gitrepo, datas.sourcecode.gitbranch, "570d9806-0dc7-4d24-a611-5dc7227f2842" ,datas.sourcecode.submodule)
+			gitclone( datas.sourcecode.gitrepo, datas.sourcecode.gitbranch, "fa4889703f43518ca02f1c8db37662218c848116" ,datas.sourcecode.submodule)
 
 		}
 	}
