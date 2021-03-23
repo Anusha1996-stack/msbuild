@@ -18,10 +18,7 @@ def datas
 
 }*/
 pipeline 
-{
-	agent any {
-	    
-	} 
+{ 
 
 stages
 {
