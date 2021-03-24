@@ -2,16 +2,14 @@
 ---
 serviceName: "WES_UTILS"
 
-
 buildEnvironment:
-  agentype: "docker"
-
-
+  agentype: "VM"
 
 sourcecode:
   gitrepo: "https://github.com/Anusha1996-stack/sample.git" #Mandatory
   gitbranch: "master" #Mandatory
-  submodule: false #Manadtory Boolean true | false
+  submodule: "true" #Manadtory Boolean true | false
+  #checkoutdirectory: " ,signing,pipeline"
  
 compile:
   buildtool: "msbuild" #make, cmake, msbuild, maven, gradle
@@ -37,16 +35,14 @@ codesigning:
     #postUTcommand: "" # specify post Unit test commands if any
 
 buildvalidationtest:
-  BVT: "NO" # Manadtory Yes | NO
+  BVT: "NO" # Manadtory Yes 
 
-
-skylineupload:
-  filestobeuploaded: "BAACTIVE/RELEASE/" 
-  excludefiles: ""
+  skylineupload:
+  filestobeuploaded: "WESUTILS/DCEditor" 
+  excludefiles: "" 
 
 postbuildactivity:
   archiveartifact: ""
   
-
-emailID: "Sindhu_V_s@Dellteam.com" # Email alias for email notification
+emailID: "deepika_kandula@dell.com" # Email alias for email notification
 

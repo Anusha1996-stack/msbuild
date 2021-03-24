@@ -9,16 +9,12 @@
 
    // return jenkinsSettingsMap
 //}
-def call(String emaillist)
+def call()
 {
 def datas
-/*node
-{
-	script{ datas = readYaml (file: 'jenkins.yaml') }
-
-}*/
 pipeline 
-{ 
+{
+	agent any
 
 stages
 {
@@ -26,23 +22,20 @@ stages
 	{
 		steps
 		{
-			script{ datas = readYaml (file: 'jenkins.yaml') }
-			gitclone( datas.sourcecode.gitrepo, datas.sourcecode.gitbranch, "fa4889703f43518ca02f1c8db37662218c848116" ,datas.sourcecode.submodule)
+		script{ datas = readYaml (file: 'jenkins.yaml')
+		gitclone( datas.sourcecode.gitrepo, datas.sourcecode.gitbranch, 'fa4889703f43518ca02f1c8db37662218c848116',datas.sourcecode.submodule)
 
 		}
+	}
+
 	}
 
 	stage('Compile')
         {
                 steps
                 {
-			compile(datas.compile.buildtool, datas.compile.makeParams, datas.serviceName, datas.compile.buildDir)
-			script{
-			if(datas.codesigning.signing == 'YES') {
-				signing(datas.codesigning.signtype, datas.codesigning.signingcert, datas.codesigning.filetobesigned, datas.codesigning.dirforsignedfiles)
+			compile(datas.compile.buildMode,datas.compile.Signcert,datas.compile.ISO,datas.serviceName)
 
-			}
-			}
 		}
 	}
 	stage('UnitTest')
@@ -72,13 +65,6 @@ stages
 	 	steps
 		{
 		      artifact_upload()
-		      script{
-		      if(datas.postbuildactivity.archiveartifact != null && datas.postbuildactivity.archiveartifact != "") {
-            			archive(datas.postbuildactivity.archiveartifact)
-            	      		return
-        		}
-			}
-
 		 }
 	}
 	
@@ -90,7 +76,9 @@ stages
             subject: "Jenkins: ${env.JOB_NAME} | build# ${env.BUILD_NUMBER} - ${currentBuild.result}",
             to: datas.emailID, //to
             replyTo: "CPG_BUILD-INFRA@Dell.com" //replyTo
-        }	
+        }
+	}
+
 }
-}
+
 }

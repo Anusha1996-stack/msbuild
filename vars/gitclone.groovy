@@ -11,7 +11,7 @@
  	
 }*/
 
-def call(String gitURLString, String branchID, String gitUserID, Boolean submodule)
+def call(String gitURLString, String branchID, String gitUserID, String submodule)
 {
             checkout([
             $class: 'GitSCM',
